@@ -58,3 +58,9 @@ Y para volver a ingresar escribe:
 workon FER
 ```
 
+### 5. Instalar mongoDB
+```
+brew install mongodb
+```
+
+
