@@ -5,10 +5,18 @@ Visualización de los KPIs del proyecto FER (Facial Emotion Recognition) de la c
 ### MacOS
 #### 1. Instala Python3 desde Homebrew.
 
-`brew install python3`
+```
+brew install python3
+```
+
 Esto también instala pip3.
 
-Verifica que `which python3` regresa
+Verifica que `which python3` regresa 
+```
+/usr/local/bin/python3
+```
+
+Si no, ni pedos.
 
 ### 2. Instala virtualenv y virtualenvwrapper con pip3
 `pip3 install virtualenv virtualenwrapper`
