@@ -28,7 +28,7 @@ Virtualenvwrapper gestiona tus ambientes y hace sencillo el poder crear, borrar,
 ### 3.Configura tu virtualenvwrapper
 Crea el directorio `~/.virtualenvs`. con `mkdir ~/.virtualenvs`.
 
-En tu `~/.bash_config` o `~/.zsrhc`, agrega el siguiente código
+En tu `~/.bash_config` (si usas bash) o `~/.zsrhc` (si usas zsh), agrega el siguiente código
 ```
 # Virtualenv / VirtualenvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -36,7 +36,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 ```
-A `/.bash_config` si tienes Bash o a `/.zshrc` si tienes Zsh.
 
 Se crea el directorio donde se guardarán los ambientes virtuales, en este caso `~/.virtualenvs`.
 
