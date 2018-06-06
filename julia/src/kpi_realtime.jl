@@ -2,19 +2,13 @@ module KPIRealTime
 
 using DataFrames, StatPlots
 
-include("src/data_access.jl")
-
-plotly()
+plotly() # Plotting Front-end
 
 emotions = ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"]
 
-function run_kpi(data::DataFrames.DataFrame; seconds::Number = 5, last_x_minutes::Number = 30)
-    while true
-        data = DataAccess.read_csv()
-        data_dict = structure_data(data, last_x_minutes)
-        plot_data(data_dict)
-        sleep(seconds)
-    end
+function run_kpi(last_x_minutes::Number = 30)
+    data_dict = structure_data(data, last_x_minutes)
+    plot_data(data_dict)
 end
 
 function structure_data(data::DataFrames.DataFrame, m::Number)
