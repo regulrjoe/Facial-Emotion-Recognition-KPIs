@@ -1,5 +1,18 @@
-using CSV, DataFrames, StatPlots
+module KPIAgeGender
 
-data = CSV.read("/Users/tonyj/Downloads/test.csv")
+using DataFrames, StatPlots
 
-showall(data)
+include("src/data_access.jl")
+
+plotly() # Plotting Front-end
+
+function run_kpi(data::DataFrames.DataFrame)
+end
+
+function structure_data()
+end
+
+function plot_data()
+end
+
+end
