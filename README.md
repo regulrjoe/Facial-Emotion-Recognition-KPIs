@@ -3,12 +3,11 @@ Visualización de los KPIs del proyecto FER (Facial Emotion Recognition) de la c
 
 ## Algoritmo
 
-### Paso 1 - Consumir de Mongo desde Python
+### Python
+####Paso 1 - Consumir registros de Mongo
+####Paso 2 - Crear archivo CSV
 
-### Paso 2 - Crear archivo CSV
-
-### Paso 3 - Consumir archivo CSV desde Julia
-
-### Paso 4 - Estructurar datos
-
-### Paso 5 - Mostrar datos en Plots
+### Julia
+#### Paso 3 - Consumir archivo CSV
+#### Paso 4 - Estructurar datos
+#### Paso 5 - Mostrar datos en Plots
