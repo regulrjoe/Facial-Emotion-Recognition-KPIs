@@ -12,11 +12,12 @@ using Mongo, LibBSON
 client = MongoClient() # default localhost:27017
 
 # Consume de la base de datos
-cats = MongoCollection(client, "db", "cats")
+faces = MongoCollection(client, "fer", "faces")
 
-#### Query Syntax
+#### Imprimir cantidad de mujeres
+println(count(faces, ("Gender" => "female")))
 
-```
+### Esto no me sirve
 Dict("\$query" => Dict("age" => Dict("$lt" => 19)))
 ```
 
