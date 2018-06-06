@@ -3,31 +3,12 @@ Visualización de los KPIs del proyecto FER (Facial Emotion Recognition) de la c
 
 ## Algoritmo
 
-### Paso 1 - Consumir de Mongo
+### Paso 1 - Consumir de Mongo desde Python
 
-```
-using Mongo, LibBSON
+### Paso 2 - Crear archivo CSV
 
-# Crear conexión a cliente
-client = MongoClient() # default localhost:27017
+### Paso 3 - Consumir archivo CSV desde Julia
 
-# Consume de la base de datos
-faces = MongoCollection(client, "fer", "faces")
+### Paso 4 - Estructurar datos
 
-#### Imprimir cantidad de mujeres
-println(count(faces, ("Gender" => "female")))
-
-### Esto no me sirve
-Dict("\$query" => Dict("age" => Dict("$lt" => 19)))
-```
-
-```
-# Imprime todos los gatos menores a 19 años
-for doc in find(cats, query("age" => lt(19)))
-  println("$(doc["name"]) is younger than 19")
-end
-```
-
-### Paso 2 - Estructurar datos
-
-### Paso 3 - Mostrar datos en Plots
+### Paso 5 - Mostrar datos en Plots
