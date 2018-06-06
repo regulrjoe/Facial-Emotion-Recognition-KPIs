@@ -2,4 +2,4 @@ using Mongo, LibBSON
 
 client = MongoClient()
 
-reactions = MongoCollection(client, "db", "reactions")
+reactions = MongoCollection(client, "fer", "faces")
