@@ -18,3 +18,5 @@ function query_realtime(dt_from::DateTime)
 
     return df
 end
+
+end
