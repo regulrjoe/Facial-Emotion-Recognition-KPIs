@@ -13,3 +13,5 @@ function run_kpis(rt_seconds::Number = 5, rt_last_x_minutes::Number = 30)
 
     KPI1.run_kpi(rt_seconds, rt_last_x_minutes)
 end
+
+run_kpis(2, 10)
