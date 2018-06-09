@@ -4,8 +4,8 @@ include("data_access.jl")
 
 using DataFrames, PlotlyJS
 
+# Global variables
 DA = DataAccess
-
 emotions = ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"]
 
 
@@ -14,7 +14,8 @@ function run_kpi(seconds::Int64 = 5, last_x_minutes::Int64 = 30)
     layout = Layout(
         title=string("[", uppercase(Dates.dayname(Dates.now())), "] Emotions per ", seconds, " seconds from the last ", last_x_minutes, " minutes."),
         xaxis_title="Time",
-        yaxis_title="Emotion Count")
+        yaxis_title="Emotion Count"
+    )
     # Create instance of traces for plot
     traces = Array{PlotlyBase.GenericTrace}(length(emotions))
     for i = 1:length(emotions)
@@ -24,8 +25,8 @@ function run_kpi(seconds::Int64 = 5, last_x_minutes::Int64 = 30)
     plt = plot(traces, layout)
 
     # Run the kpi
+    println("\nRunning KPI RealTime...")
     while true
-        println("\nRunning KPI...")
         # Get current datetime object
         dt_to = Dates.DateTime(Dates.now())
         # Get datetime object from m minutes back
@@ -48,6 +49,7 @@ end
 
 function structure_data(data::DataFrames.DataFrame, s::Number, time_from::Dates.Time, time_to::Dates.Time)
     println("\nStructuring data...")
+
     # Lapse of time to visualize
     lapse_in_seconds = Dates.value(Dates.Second(time_to - time_from))
     tics = Int64(lapse_in_seconds / s)
@@ -61,7 +63,7 @@ function structure_data(data::DataFrames.DataFrame, s::Number, time_from::Dates.
 
     # Create Matrices to be used in plotting
     X_DateTime = Array{Base.Dates.Time}(tics)       # X-axis: Time
-    Y_EmotionCounts = zeros(tics, length(emotions)) # Y-axis: Count of emotions, 1 column for each emotion
+    Y_EmotionCounts = zeros(tics, length(emotions)) # Y-axis: Count of emotions, 1 column per emotion
     for i = 1:tics
         X_DateTime[i] = time_from + (Dates.Second((i - 1) * s))
         for j = 1:length(emotions)
