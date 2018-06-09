@@ -26,7 +26,7 @@ def populate():
             "Age": age,
             "Gender": gender,
             "Emotion": emotion,
-            "DateTime": dt
+            "Date": dt
         }
 
         faces.insert_one(face)
