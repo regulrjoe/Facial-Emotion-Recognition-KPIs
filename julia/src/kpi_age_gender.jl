@@ -2,43 +2,37 @@ module KPIAgeGender
 
 include("data_access.jl")
 
-using DataFrames, StatPlots
+using DataFrames, PlotlyJS
 
 plotly() # Plotting Front-end
 
 #Global variables
 DA = DataAccess
-young_male_anger_count = 0
+emotions = ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"]
 
 function run_kpi()
     data = DA.query_all()
 
-    cleanData = structure_data(data)
-    plot_data()
+    data_tuple = structure_data(data)
+    plot_data(data_tuple)
 end
 
 
 function structure_data(data::DataFrames.DataFrame)
-    #sum_happiness = 0
-    #for item in data[:Age]
-    #    sum_happiness += item
-    #return data
-    print("structuring tony's data")
-    println(data)
-    showcols(data)
-    nrows, ncols = size(data)
-    println(nrows)
-    println(ncols)
-    println(length(data))
+    print("Structuring age-gender data...")
 
     young_males = get_by_gender(get_youngsters(data), "male")
     young_females = get_by_gender(get_youngsters(data), "female")
     old_males = get_by_gender(get_adults(data), "male")
     old_females = get_by_gender(get_adults(data), "female")
 
-    println(old_females)
+    #Count repetitions for each emotion, on each group
+    young_male_counts = count_emotions(young_males)
+    young_female_counts = count_emotions(young_females)
+    old_male_counts = count_emotions(old_males)
+    old_female_counts = count_emotions(old_females)
 
-    return data
+    return (young_male_counts, young_female_counts, old_male_counts, old_female_counts)
 
 end
 
@@ -64,8 +58,16 @@ function get_emotion_count(data_frame::DataFrames.DataFrame, emotion::String)
     return counter
 end
 
+function count_emotions(data::DataFrames.DataFrame)
+    array = zeros(length(emotions))
+    for i = 1:length(emotions)
+        array[i] = get_emotion_count(data, emotions[i])
+    end
+    return array
+end
 
-function plot_data()
+
+function plot_data(tuple::NTuple{4,Array{Float64,1}})
 
 end
 
