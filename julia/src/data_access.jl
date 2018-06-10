@@ -22,12 +22,11 @@ function query_realtime(dt_from::DateTime)
 end
 
 function query_all()
-    df = DataFrame(Emotion = String[], DateTime = DateTime[])
+    df = DataFrame(Emotion = String[], Gender = String[], Age = Number[], DateTime = DateTime[])
 
     for doc in find(faces, query())
-        df = vcat(df, DataFrame(Emotion = doc["Emotion"], DateTime = doc["Date"]))
+        df = vcat(df, DataFrame(Emotion = doc["Emotion"], Gender = doc["Gender"], Age = doc["Age"], DateTime = doc["Date"]))
     end
-
     return df
 end
 
