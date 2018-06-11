@@ -4,7 +4,7 @@ include("data_access.jl")
 
 using DataFrames, PlotlyJS
 
-plotly() # Plotting Front-end
+#plotly() # Plotting Front-end
 
 #Global variables
 DA = DataAccess
@@ -19,8 +19,6 @@ end
 
 
 function structure_data(data::DataFrames.DataFrame)
-    print("Structuring age-gender data...")
-
     young_males = get_by_gender(get_youngsters(data), "male")
     young_females = get_by_gender(get_youngsters(data), "female")
     old_males = get_by_gender(get_adults(data), "male")
@@ -68,7 +66,19 @@ end
 
 
 function plot_data(tuple::NTuple{4,Array{Float64,1}})
+    plots = [
+    pie(values=tuple[1], labels=emotions, domain_x=[0, 0.48], domain_y=[0, 0.49], name="Males 0-29"),
+    pie(values=tuple[2], labels=emotions, domain_x=[0.52, 1], domain_y=[0, 0.49], name="Females 0-29"),
+    pie(values=tuple[3], labels=emotions, domain_x=[0, 0.48], domain_y=[0.51, 1], name="Males 30 and older"),
+    pie(values=tuple[4], labels=emotions, domain_x=[0.52, 1], domain_y=[0.52, 1], name="Females 30 and older")
+    ]
 
+    layout = Layout(
+    title = "Pie charts",
+    #annotations = [(font_size = 14, showarrow = false, text = "Males 0-29", x = 0.17, y = 0.5), (font_size = 14, showarrow = false, text = "Females 0-29", x = 0.82, y = 0.5)]
+    )
+    plt = plot(plots, layout)
+    display(plt)
 end
 
 end
