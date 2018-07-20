@@ -1,11 +1,11 @@
-# FERProject
-Visualización de los KPIs del proyecto FER (Facial Emotion Recognition) de la clase de Business Intelligence con Julia.
+# Facial Emotion Recognition KPIs
+Consumption of data and visualization of KPIs from a MongoDB instance for the Business Intelligence class' final proyect "Facial Emotion Recognition".
 
-### KPI1 - Tiempo Real
-Presencia en tiempo real de las 8 emociones (neutral, felicidad, enojo, tristeza, sorpresa, miedo, desprecio, disgusto) principales en un diagrama lineal múltiple actualizado cada _N_ segundos para visualizar el flujo de las emociones.
+### KPI 1 - Realtime
+Realtime presence of all 8 emotions (neutral, happiness, anger, sadness, surprise, fear, disgust and contempt) displayed on a multiple linear plot updated every _N_ seconds. This to observe the flow of emotions in realtime.
 
-### KPI2 - Promedio por Hora
-Promedio del total de cada una de las 8 emociones analizadas (neutral, felicidad, enojo, tristeza, sorpresa, miedo, desprecio, disgusto) de hora _A_ a hora _B_ representado en una barra apilada, para observar la influencia del horario en los clientes.
+### KPI 2 - Average per Hour
+Total average per hour of each emotion from hour _A_ to hour _B_ displayed on a stacked bar plot. This is to observe the influence that time of day has on users.
 
-### KPI3 - Segmentación por Género y Edad
-Segmentación de emociones provocadas por género y edad presentadas en un gráfico de pay.
+### KPI 33 - Age and Gender Segmentation
+Segmentation of Age and Gender displayed on a pie chart.
