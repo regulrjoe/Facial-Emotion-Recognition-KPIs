@@ -1,5 +1,5 @@
 import time
-from random import randint
+from random import randint, uniform
 from datetime import datetime
 from pymongo import MongoClient
 
@@ -30,7 +30,7 @@ def populate():
         }
 
         faces.insert_one(face)
-        time.sleep(0.3)
+        time.sleep(uniform(0, 1.2))
         i += 1
 
 populate()
